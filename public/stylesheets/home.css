@@ -1,0 +1,119 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4; /* Light background color */
+    color: #333; /* Dark text color */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    height: 100vh; /* Full height */
+}
+
+.title {
+    display: flex;
+    width:100%;
+    justify-content: center;
+    margin: auto auto; /* Center the title box horizontally */
+}
+
+.title p {
+    padding-left:100px;
+    padding-right:100px;
+    margin: 10px; /* Remove default margin from the paragraph */
+    font-size: 25px;
+    color: white;
+    padding: auto auto;
+    background-color:#2c3e50 ;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    font-family: 'Roboto Slab';
+    height:100px;
+}
+
+
+* {
+    background-color: palegoldenrod;
+}
+
+img{
+  height:75px;
+  width: 75px;
+  margin-right: 30px;
+}
+
+#myLinks {
+    background-color: #2c3e50; /* Background color for the box */
+    padding: 10px; /* Padding inside the box */
+    border-radius: 8px; /* Rounded corners for the box */
+    display: flex; /* Use flexbox to arrange links */
+    justify-content: flex-end; /* Center links horizontally */
+    gap: 10px; /* Space between links */
+    margin: 30px 0px; /* Margin around the box */
+    align-items: center;
+}
+
+a, .overlay button.logout{
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+    /* margin: px; */
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #2980b9; 
+    color: white;
+    border: none;
+    border-radius: 4px;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    margin: 5px 15px;
+    height: 20px;
+    width: 100px;
+}
+
+h1{
+background-color: #2c3e50; /* Button color */
+color: white;
+margin-right: 200px;
+}
+
+.quiz-card {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Arrange children in a column */
+    align-items: center; /* Center children horizontally */
+    justify-content: center; /* Center children vertically */
+    margin: 40px auto; /* Add margin and center the card */
+    padding: 20px; /* Add padding */
+    background-color: #2c3e50; /* Light background color */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+    width: 300px; /* Fixed width for the card */
+}
+
+h2{
+    color: white;
+    background-color: #2c3e50;
+}
+.quiz-card button {
+    background-color: #2980b9; /* Button color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 5px;
+    width: 250px;
+    height: 50px;
+}
+
+button:hover {
+    background-color: #3498db; /* Lighter button color on hover */
+}

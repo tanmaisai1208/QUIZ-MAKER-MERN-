@@ -1,0 +1,50 @@
+* {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+h1{
+  font-size:25px;
+  color:lightsalmon;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 20px;
+    background-color: palegoldenrod;
+}
+
+label{
+    color: lightsalmon;
+    font-size:20px;
+}
+
+correctOption{
+ height:20px;
+}
+
+.quizContainer{
+   background-color: #2F4F4F;
+   max-width: 600px;
+   text-align: center;
+   margin: auto;
+   padding-bottom: 15px;
+}
+.correctOption{
+  font-size:10px;
+}
+form {
+    display: inline-block;
+    text-align: left;
+}
+
+input, select {
+    margin-bottom: 10px;
+    display: block;
+    width: 100%;
+}
+
+button {
+    margin-top: 20px;
+}

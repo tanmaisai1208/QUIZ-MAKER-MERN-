@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Home</title>
+    <link rel="stylesheet" href="/stylesheets/home.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <p>QUIZ MASTER - PARTICIPATE IN QUIZZES AND ALSO CREATE YOUR OWN QUIZZES </p>
+        </div>
+        
+        <div id="myLinks" class="overlay">
+                <img src="/images/logo.png" alt="error loading image" />
+                <h1 style="justify-content: flex-start;">Welcome to the Quiz Master</h1>
+                <% if (userId) { %>
+                    <a href="/">Home</a>
+                    <a href="/logout">Logout</a>
+                <% } else { %>
+                    <a href="/">Home</a>
+                    <a href="/login">Login</a>
+                    <a href="/register">Register</a>
+                <% } %>
+        </div>
+
+        <div class="quiz-card">
+            <h2 style="font-size: 30px;">Quizzes Available</h2>
+            <button onclick="window.location.href='/createQuiz'">CREATE QUIZ</button>
+            <button onclick="window.location.href='/takeQuiz'">TAKE QUIZ</button>
+        </div>
+    </div>
+
+    <% if (successfull) { %>
+        <script>
+          window.onload = function () {
+            alert('<%= successfull %>');
+          };
+        </script>
+    <% } %>
+</body>
+</html>

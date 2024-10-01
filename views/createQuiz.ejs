@@ -1,0 +1,190 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Quiz</title>
+    <link rel="stylesheet" href="/stylesheets/createQuiz.css">
+</head>
+<body>
+    <div class="quizContainer">
+    <h1>Create a New Quiz</h1>
+    <form id="quizForm">
+        <label for="quizTitle">Quiz Title:</label>
+        <input type="text" id="quizTitle" name="quizTitle" required><br><br>
+
+        <div id="questionsContainer">
+            <div class="question">
+                <label for="questionText">Question 1:</label>
+                <input type="text" class="questionText" name="questionText" required><br>
+                <label>Option A:</label><input type="text" class="optionA" required><br>
+                <label>Option B:</label><input type="text" class="optionB" required><br>
+                <label>Option C:</label><input type="text" class="optionC" required><br>
+                <label>Option D:</label><input type="text" class="optionD" required><br>
+                <label>Correct Answer:</label>
+                <select class="correctOption">
+                    <option value="a">A</option>
+                    <option value="b">B</option>
+                    <option value="c">C</option>
+                    <option value="d">D</option>
+                </select>
+            </div>
+        </div>
+
+        <button type="button" id="addQuestionBtn">Add Question</button>
+        <button type="submit">Submit Quiz</button>
+    </form>
+    </div>
+    
+    <script src="/javascripts/createQuiz.js"></script>
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Quiz</title>
+    <link rel="stylesheet" href="/stylesheets/createQuiz.css">
+</head>
+<body>
+    <div class="quizContainer">
+    <h1>Create a New Quiz</h1>
+    <form id="quizForm">
+        <label for="quizTitle">Quiz Title:</label>
+        <input type="text" id="quizTitle" name="quizTitle" required><br><br>
+
+        <div id="questionsContainer">
+            <div class="question">
+                <label for="questionText">Question 1:</label>
+                <input type="text" class="questionText" name="questionText" required><br>
+
+                <!-- Toggle between multiple-choice and open-ended question -->
+                <!-- <label for="questionType">Question Type:</label>
+                <select class="questionType" name="questionType" onchange="toggleOptions(this)">
+                    <option value="multiple">Multiple Choice</option>
+                    <option value="open-ended">Open-ended</option>
+                </select><br>
+
+                <!-- Multiple Choice Options -->
+                <!-- <div class="multipleChoiceOptions">
+                    <label>Option A:</label><input type="text" class="optionA"><br>
+                    <label>Option B:</label><input type="text" class="optionB"><br>
+                    <label>Option C:</label><input type="text" class="optionC"><br>
+                    <label>Option D:</label><input type="text" class="optionD"><br>
+                    <label>Correct Answer:</label>
+                    <select class="correctOption">
+                        <option value="a">A</option>
+                        <option value="b">B</option>
+                        <option value="c">C</option>
+                        <option value="d">D</option>
+                    </select>
+                </div>
+
+                <!-- Open-ended Answer Input (Hidden by default) -->
+                <!-- <div class="openEndedAnswer" style="display:none;">
+                    <label for="openEndedAnswer">Answer:</label>
+                    <input type="text" class="openEndedInput" placeholder="Type the correct answer">
+                </div>
+            </div>
+        </div>
+
+        <button type="button" id="addQuestionBtn">Add Question</button>
+        <button type="submit">Submit Quiz</button>
+    </form>
+    </div>
+    
+    <script src="/javascripts/createQuiz.js"></script>
+    <script>
+        function toggleOptions(selectElement) {
+            const questionContainer = selectElement.closest('.question');
+            const multipleChoiceDiv = questionContainer.querySelector('.multipleChoiceOptions');
+            const openEndedDiv = questionContainer.querySelector('.openEndedAnswer');
+            
+            if (selectElement.value === 'open-ended') {
+                multipleChoiceDiv.style.display = 'none';
+                openEndedDiv.style.display = 'block';
+            } else {
+                multipleChoiceDiv.style.display = 'block';
+                openEndedDiv.style.display = 'none';
+            }
+        }
+    </script>
+</body> -->
+<!-- </html> --> 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Quiz</title>
+    <link rel="stylesheet" href="/stylesheets/createQuiz.css">
+</head>
+<body>
+    <div class="quizContainer">
+        <h1>Create a New Quiz</h1>
+        <form id="quizForm" action="/createQuiz" method="POST">
+            <label for="quizTitle">Quiz Title:</label>
+            <input type="text" id="quizTitle" name="quizTitle" required><br><br>
+
+            <div id="questionsContainer">
+                <div class="question">
+                    <label for="questionText">Question 1:</label>
+                    <input type="text" class="questionText" name="questionText" required><br>
+
+                    <!-- Question Type Selection -->
+                    <label for="questionType">Question Type:</label>
+                    <select class="questionType" name="questionType" onchange="toggleOptions(this)">
+                        <option value="multiple">Multiple Choice</option>
+                        <option value="open-ended">Open-ended</option>
+                    </select><br>
+
+                    <!-- Multiple Choice Options -->
+                    <div class="multipleChoiceOptions">
+                        <label>Option A:</label><input type="text" class="optionA" required><br>
+                        <label>Option B:</label><input type="text" class="optionB" required><br>
+                        <label>Option C:</label><input type="text" class="optionC" required><br>
+                        <label>Option D:</label><input type="text" class="optionD" required><br>
+                        <label>Correct Answer:</label>
+                        <select class="correctOption" required>
+                            <option value="a">A</option>
+                            <option value="b">B</option>
+                            <option value="c">C</option>
+                            <option value="d">D</option>
+                        </select>
+                    </div>
+
+                    <!-- Open-ended Answer Input (Hidden by default) -->
+                    <div class="openEndedAnswer" style="display:none;">
+                        <label for="openEndedAnswer">Answer:</label>
+                        <input type="text" class="openEndedInput" placeholder="Type the correct answer" required>
+                    </div>
+                </div>
+            </div>
+
+            <button type="button" id="addQuestionBtn">Add Question</button>
+            <button type="submit">Submit Quiz</button>
+        </form>
+    </div>
+
+    <script>
+        // Function to toggle visibility of options based on question type
+        function toggleOptions(select) {
+            const questionDiv = select.closest('.question');
+            const multipleChoiceOptions = questionDiv.querySelector('.multipleChoiceOptions');
+            const openEndedAnswer = questionDiv.querySelector('.openEndedAnswer');
+
+            if (select.value === 'multiple') {
+                multipleChoiceOptions.style.display = 'block';
+                openEndedAnswer.style.display = 'none';
+            } else {
+                multipleChoiceOptions.style.display = 'none';
+                openEndedAnswer.style.display = 'block';
+            }
+        }
+    </script>
+    <script src="/javascripts/createQuiz.js"></script>
+</body>
+</html>
