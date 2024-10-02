@@ -127,7 +127,14 @@
         <h1>Create a New Quiz</h1>
         <form id="quizForm">
             <label for="quizTitle">Quiz Title:</label>
-            <input type="text" id="quizTitle" name="quizTitle" required><br><br>
+            <select id="quizTitle" name="quizTitle" required>
+                <option value="" disabled selected>Select a Quiz Title</option>
+                <option value="Maths">Maths</option>
+                <option value="Science">Science</option>
+                <option value="History">History</option>
+                <option value="General-Knowledge">General-Knowledge</option>
+                <option value="Geography">Geography</option>
+            </select><br><br>
 
             <div id="questionsContainer">
                 <div class="question">
