@@ -11,7 +11,6 @@ require('dotenv').config();
 
 const app = express();
 
-// Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
@@ -82,12 +81,10 @@ app.post('/register', async (req, res) => {
             return res.redirect('/register');
         }
         else {
-            // const hashedPassword = await bcrypt.hash(password, 10);
             const newUser = new User({
                 name,
                 email,
                 password
-                // password: hashedPassword
             });
             await newUser.save();
             req.session.userId = newUser._id;
@@ -115,6 +112,7 @@ app.post('/login', async (req, res) => {
         } else {
             req.session.userId = user._id;
             req.session.successfull = 'LOGGED-IN SUCCESSFULLY';
+            console.log("logged-in");
             return res.redirect('/');
         }
     } catch (error) {
@@ -137,32 +135,34 @@ app.get('/createQuiz', async (req, res) => {
 });
 
 app.post('/createQuiz', async (req, res) => {
+    console.log("hello");
     try {
-        const { quizTitle, questions } = req.body;
-
-        // Create a new quiz instance
-        const newQuiz = new Quiz({
-            quizTitle,
+        // const { quizTitle, questions } = req.body;
+        // const quizData = JSON.parse(req.body.quizData);
+        const { quizTitle, questions } = req.body;   
+        const newQuiz = new Quiz({    
+            quizTitle: quizTitle,
             questions: questions.map(question => {
                 if (question.correct) {
-                    // For multiple-choice questions
                     return {
                         text: question.text,
-                        type: 'multiple', // Specify that this is a multiple-choice question
+                        type: 'multiple', 
                         options: {
                             a: question.a,
                             b: question.b,
                             c: question.c,
                             d: question.d
                         },
-                        correct: question.correct
+                        correct: question.correct,
+                        answer: null
                     };
                 } else {
-                    // For open-ended questions
                     return {
                         text: question.text,
-                        type: 'open-ended', // Specify that this is an open-ended question
-                        answer: question.answer // Use 'answer' for open-ended
+                        type: 'open-ended', 
+                        options: null,
+                        correct: null,
+                        answer: question.answer 
                     };
                 }
             }),
@@ -171,6 +171,7 @@ app.post('/createQuiz', async (req, res) => {
         // Save the quiz to the database
         await newQuiz.save();
         res.status(201).json({ message: 'Quiz created successfully!' });
+        console.log("successfull");
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: 'Failed to create quiz.' });

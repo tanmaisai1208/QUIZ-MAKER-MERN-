@@ -103,7 +103,7 @@ document.getElementById('addQuestionBtn').addEventListener('click', () => {
     questionsContainer.insertAdjacentHTML('beforeend', questionHTML);
 });
 
-quizForm.addEventListener('submit', async (e) => {
+document.getElementById('quizForm').addEventListener('submit', async(e) => {
     e.preventDefault();
 
     const quizData = {
@@ -115,7 +115,7 @@ quizForm.addEventListener('submit', async (e) => {
         const text = question.querySelector('.questionText').value;
         
         // Determine if the question is multiple choice or open-ended
-        const questionType = question.querySelector('.questionType').value; // Get the question type
+        const questionType = question.querySelector('.questionType').value; 
         
         if (questionType === 'multiple') {
             // Multiple choice question
@@ -123,21 +123,21 @@ quizForm.addEventListener('submit', async (e) => {
             const b = question.querySelector('.optionB').value;
             const c = question.querySelector('.optionC').value;
             const d = question.querySelector('.optionD').value;
-            const correct = question.querySelector('.correctOption').value; // Get the correct option
+            const correct = question.querySelector('.correctOption').value;
             quizData.questions.push({ text, a, b, c, d, correct });
         } else {
             // Open-ended question
-            const answer = question.querySelector('.openEndedInput').value; // Get the open-ended answer
+            const answer = question.querySelector('.openEndedInput').value; 
             quizData.questions.push({ text, answer });
         }
     });
 
-    const response = await fetch('/createQuiz', { // Ensure this matches your server route
+    const response = await fetch('/createQuiz', { 
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(quizData),
+        body: JSON.stringify(quizData), 
     });
 
     if (response.ok) {

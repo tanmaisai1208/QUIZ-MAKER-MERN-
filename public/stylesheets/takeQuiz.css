@@ -10,7 +10,7 @@ body {
 }
 
 .quiz-container {
-    background-color: #2F4F4F; /* Dark Slate Gray */
+    background-color: #2F4F4F; 
     color: palegoldenrod;
     padding: 20px;
     border-radius: 8px;
@@ -21,14 +21,12 @@ body {
     text-align: center;
 }
 
-/* Title */
 .quiz-title {
     margin-bottom: 20px;
     font-size: 28px;
     color: rgb(250, 244, 131);
 }
 
-/* Question Styles */
 #question-container {
     margin-bottom: 20px;
 }
@@ -45,9 +43,8 @@ body {
     cursor: pointer;
 }
 
-/* Navigation Buttons */
 .nav-btn {
-    background-color: #4682B4; /* Steel Blue */
+    background-color: #4682B4; 
     color: white;
     border: none;
     padding: 10px 20px;
@@ -58,16 +55,15 @@ body {
 }
 
 .nav-btn:hover {
-    background-color: #5A9BD3; /* Lighter Steel Blue */
+    background-color: #5A9BD3;
 }
 
-/* Submit Button */
 #submit-section {
     margin-top: 20px;
 }
 
 .submit-btn {
-    background-color: #32CD32; /* Lime Green */
+    background-color: #32CD32; 
     color: white;
     padding: 12px 24px;
     border: none;
@@ -80,7 +76,6 @@ body {
     background-color: #45E645;
 }
 
-/* Result Section */
 #result-section {
     margin-top: 30px;
 }

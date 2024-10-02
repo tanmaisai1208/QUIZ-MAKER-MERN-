@@ -125,7 +125,7 @@
 <body>
     <div class="quizContainer">
         <h1>Create a New Quiz</h1>
-        <form id="quizForm" action="/createQuiz" method="POST">
+        <form id="quizForm">
             <label for="quizTitle">Quiz Title:</label>
             <input type="text" id="quizTitle" name="quizTitle" required><br><br>
 
@@ -134,14 +134,14 @@
                     <label for="questionText">Question 1:</label>
                     <input type="text" class="questionText" name="questionText" required><br>
 
-                    <!-- Question Type Selection -->
+                    
                     <label for="questionType">Question Type:</label>
                     <select class="questionType" name="questionType" onchange="toggleOptions(this)">
                         <option value="multiple">Multiple Choice</option>
                         <option value="open-ended">Open-ended</option>
                     </select><br>
 
-                    <!-- Multiple Choice Options -->
+                    
                     <div class="multipleChoiceOptions">
                         <label>Option A:</label><input type="text" class="optionA" required><br>
                         <label>Option B:</label><input type="text" class="optionB" required><br>
@@ -156,21 +156,22 @@
                         </select>
                     </div>
 
-                    <!-- Open-ended Answer Input (Hidden by default) -->
+                    
                     <div class="openEndedAnswer" style="display:none;">
                         <label for="openEndedAnswer">Answer:</label>
-                        <input type="text" class="openEndedInput" placeholder="Type the correct answer" required>
+                        <input type="text" class="openEndedInput" placeholder="Type The Correct Answer" required>
                     </div>
                 </div>
             </div>
 
+            <input type="hidden" id="quizData" name="quizData">
             <button type="button" id="addQuestionBtn">Add Question</button>
             <button type="submit">Submit Quiz</button>
         </form>
     </div>
 
     <script>
-        // Function to toggle visibility of options based on question type
+        
         function toggleOptions(select) {
             const questionDiv = select.closest('.question');
             const multipleChoiceOptions = questionDiv.querySelector('.multipleChoiceOptions');
