@@ -8,18 +8,27 @@
 </head>
 <body>
     <div class="quiz-container">
-        <h1 class="quiz-title">Take the Quiz</h1>
+        <h1 class="quiz-title">Select Quiz Title</h1>
 
-        <div id="question-container">
-            
+        <select id="quizTitle" required>
+            <option value="" disabled selected>Select Quiz Title</option>
+            <option value="Maths">Maths</option>
+            <option value="Science">Science</option>
+            <option value="History">History</option>
+            <option value="General-Knowledge">General Knowledge</option>
+            <option value="Geography">Geography</option>
+        </select>
+
+        <div id="question-container" style="display:none;">
+
         </div>
 
-        <div class="navigation">
+        <div class="navigation" style="display:none;">
             <button id="prev-btn" class="nav-btn">Previous</button>
             <button id="next-btn" class="nav-btn">Next</button>
         </div>
 
-        <div id="submit-section">
+        <div id="submit-section" style="display:none;">
             <button id="submit-btn" class="submit-btn">Submit Quiz</button>
         </div>
 
