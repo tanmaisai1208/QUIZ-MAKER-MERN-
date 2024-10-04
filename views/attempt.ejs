@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attempt Quiz</title>
+    <link rel="stylesheet" href="/stylesheets/attempt.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <h1 class="quiz-title">Attempt Quiz</h1>
+
+        <div id="question-container">
+            
+        </div>
+
+        <div class="navigation">
+            <button id="prev-btn" class="nav-btn" style="display:none;">Previous</button>
+            <button id="next-btn" class="nav-btn" style="display:none;">Next</button>
+        </div>
+
+        <div id="submit-section" style="display:none;">
+            <button id="submit-btn" class="submit-btn">Submit Quiz</button>
+        </div>
+
+        <div id="result-section" class="result-hidden">
+            <h2>Your Score: <span id="score"></span></h2>
+        </div>
+    </div>
+
+    <script>
+        const quiz = '<%= JSON.stringify(quiz) %>';
+    </script>
+
+    <script src="/javascripts/attempt.js"></script>
+</body>
+</html>

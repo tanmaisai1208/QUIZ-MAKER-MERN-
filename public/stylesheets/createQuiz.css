@@ -15,13 +15,23 @@ body {
     background-color: palegoldenrod;
 }
 
+#quiz-url-container {
+    margin-top: 15px;
+}
+
+#quiz-url {
+    text-decoration: underline;
+    color:aqua;
+}
+
+#quiz-url:hover {
+    cursor: pointer;
+    color: rgb(110, 110, 184);
+}
+
 label{
     color: lightsalmon;
     font-size:20px;
-}
-
-correctOption{
- height:20px;
 }
 
 .quizContainer{
@@ -31,9 +41,20 @@ correctOption{
    margin: auto;
    padding-bottom: 15px;
 }
+
+#quizTitle {
+  margin-top: 15px;
+}
+
 .correctOption{
   font-size:10px;
+  height:25px;
 }
+
+#quiz-url-container p{
+    margin-bottom: 5px;
+}
+
 form {
     display: inline-block;
     text-align: left;

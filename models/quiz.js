@@ -16,6 +16,7 @@ const quizSchema = new mongoose.Schema({
             answer: { type: String }
         },
     ],
+    url: { type: String, required: true },
 });
 
 module.exports = new mongoose.model('Quiz', quizSchema);

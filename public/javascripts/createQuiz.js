@@ -184,9 +184,20 @@ quizForm.addEventListener('submit', async (e) => {
         body: JSON.stringify(quizData),
     });
 
-    if (response.ok) {
-        alert('Quiz created successfully!');
-    } else {
-        alert('Failed to create quiz.');
-    }
+    // const result = await response.json();
+    // if (response.ok) {
+    //     alert(`Quiz created successfully! Share this URL: ${result.quizUrl}`);
+    // } else {
+    //     alert(`Failed to create quiz: ${result.message}`);
+    // }
+                // const result = await response.json();
+                if (response.ok) {
+                    alert('Quiz created successfully!');
+                    const { quizId } = await response.json();  // Assuming the response returns the quizId
+                    const quizUrl = `${quizId}`;  // Generate the quiz URL
+                    document.getElementById('quiz-url').innerText = quizUrl;  // Set the URL text
+                    document.getElementById('quiz-url-container').style.display = 'block';
+                } else {
+                    alert('Failed to create quiz.');
+                }
 });
