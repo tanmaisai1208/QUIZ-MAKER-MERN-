@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const path = require('path');
 const session = require('express-session');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('./models/user');
 const Quiz = require('./models/quiz');
@@ -208,20 +208,19 @@ app.get('/quiz/urls/:title', async (req, res) => {
     }
 });
                             
-app.get('/attemptQuiz', async(req, res) => {
-    const { quizId } = req.query;
-    try {     
-        const quiz = await Quiz.findById(quizId);
+app.get('/attemptQuiz', async (req, res) => {
+    const { quizId } = req.query; // Destructure quizId from query parameters
+    try {
+        const quiz = await Quiz.findById(quizId); // Fetch the quiz from the database
         if (quiz) {
-            console.log(JSON.stringify(quiz));
-            res.render('attempt.ejs', {quiz});
-
+            console.log('Fetched Quiz:', JSON.stringify(quiz)); // Log the quiz for debugging
+            res.render('attempt.ejs', { quiz }); // Render the attempt page with the quiz data
         } else {
-            res.status(404).send('Quiz not found.'); 
+            res.status(404).send('Quiz not found.'); // Send a 404 error if quiz not found
         }
     } catch (error) {
-        console.error('Error fetching quiz:', error);
-        res.status(500).send('Server error while fetching quiz.'); 
+        console.error('Error fetching quiz:', error); // Log any errors
+        res.status(500).send('Server error while fetching quiz.'); // Send a 500 error for server issues
     }
 });
 

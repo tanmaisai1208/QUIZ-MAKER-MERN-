@@ -8,10 +8,22 @@
 </head>
 <body>
     <div class="quiz-container">
-        <h1 class="quiz-title">Attempt Quiz</h1>
+        <h1 class="quiz-title"><%= quiz.quizTitle %></h1>
 
         <div id="question-container">
-            
+            <% quiz.questions.forEach((question, index) => { %>
+                <div class="question" id="question-<%= index %>" style="display: none;">
+                    <h2><%= question.text %></h2>
+                    <div class="options">
+                        <% Object.keys(question.options).forEach(optionKey => { %>
+                            <label class="answer-option">
+                                <input type="radio" name="answer-<%= index %>" value="<%= question.options[optionKey] %>">
+                                <%= question.options[optionKey] %>
+                            </label>
+                        <% }); %>
+                    </div>
+                </div>
+            <% }); %>
         </div>
 
         <div class="navigation">
@@ -29,9 +41,9 @@
     </div>
 
     <script>
-        const quiz = '<%= JSON.stringify(quiz) %>';
+        const quiz = <%- JSON.stringify(quiz) %>; // Ensure JSON.stringify is used correctly
     </script>
-
-    <script src="/javascripts/attempt.js"></script>
+    
+    <script src="/javascripts/attempt.js"></script> <!-- Link to the external JS file -->
 </body>
 </html>
