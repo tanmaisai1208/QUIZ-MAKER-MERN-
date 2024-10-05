@@ -1,5 +1,6 @@
 body {
     background-color: palegoldenrod;
+    font-family: Arial, sans-serif;
 }
 
 #quizContainer {
@@ -35,6 +36,7 @@ h1,h2,.question,.answer-option {
 
 button {
     font-size: 20px;
+    background-color: white;
     font-weight: bold;
     margin: 7px 7px;
     min-width: 132px;

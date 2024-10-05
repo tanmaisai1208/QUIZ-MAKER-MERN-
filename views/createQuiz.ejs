@@ -31,7 +31,8 @@
 
         <div id="quiz-url-container" style="display:none;">
             <p style="color: aqua;">Quiz created! Share this URL:</p>
-            <span id="quiz-url"></span>
+            <!-- <span id="quiz-url"></span> -->
+             <!-- <a href=""></a> -->
         </div>
     </div>
 
@@ -143,14 +144,22 @@
                 },
                 body: JSON.stringify(quizData),
             });
-            
-            // const result = await response.json();
+          
             if (response.ok) {
                 alert('Quiz created successfully!');
-                const { quizId } = await response.json();  // Assuming the response returns the quizId
-                const quizUrl = `${quizId}`;  // Generate the quiz URL
-                document.getElementById('quiz-url').innerText = quizUrl;  // Set the URL text
-                document.getElementById('quiz-url-container').style.display = 'block';
+                const {quizId}  = await response.json();  
+                const quizUrl = `${quizId}`;  
+                const container = document.getElementById('quiz-url-container');
+        
+                const link = document.createElement('a');
+                link.className = 'url';
+                const Id = quizId.split('/').pop();
+                link.href = `/attemptQuiz?quizId=${Id}`; 
+                link.innerText = quizUrl;
+                link.target = '_blank';
+                link.style.display = 'block'; 
+                container.appendChild(link);
+                document.getElementById('quiz-url-container').style.display = 'block';                               
             } else {
                 alert('Failed to create quiz.');
             }

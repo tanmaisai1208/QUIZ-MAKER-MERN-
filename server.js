@@ -100,7 +100,6 @@ app.post('/login', async (req, res) => {
     const { email, password } = req.body;
     try {
         const user = await User.findOne({ email });
-        // const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
         if (!user) {
             req.session.not_found = 'NO USER WITH THAT EMAIL, PLEASE REGISTER FIRST'
             return res.redirect('/register');
@@ -141,10 +140,6 @@ app.post('/createQuiz', async (req, res) => {
         if (!questions || questions.length === 0) {
             return res.status(400).json({ message: 'Quiz must contain at least one question.' });
         }   
-        
-        const quizId = new mongoose.Types.ObjectId();
-        const quizUrl = `https://QuizMaster/quiz/attempt/${quizId}`;
-        console.log(quizUrl);
 
         const newQuiz = new Quiz({    
             quizTitle: quizTitle,
@@ -154,7 +149,7 @@ app.post('/createQuiz', async (req, res) => {
                         text: question.text,
                         type: 'multiple', 
                         options: {
-                            a: question.options.a,  // Access individual option values
+                            a: question.options.a,
                             b: question.options.b,
                             c: question.options.c,
                             d: question.options.d
@@ -167,7 +162,7 @@ app.post('/createQuiz', async (req, res) => {
                         text: question.text,
                         type: 'open-ended', 
                         options: {
-                            a: null,  // Access individual option values
+                            a: null, 
                             b: null,
                             c: null,
                             d: null
@@ -177,10 +172,12 @@ app.post('/createQuiz', async (req, res) => {
                     };
                 }
             }),
-            url: quizUrl,
+            // url: quizUrl,
         });
-
+        
         await newQuiz.save();
+        const quizId = newQuiz._id;
+        const quizUrl = `https://QuizMaster/quiz/attempt/${quizId}`;
         res.status(201).json({ message: 'Quiz created successfully!', quizId: quizUrl });
     } catch (error) {
         console.error(error);
@@ -198,10 +195,9 @@ app.get('/quiz/urls/:title', async (req, res) => {
     try {
         const quizzes = await Quiz.aggregate([
             { $match: { quizTitle: title } }, 
-            { $sample: { size: 5 } }            // Randomly select 5 documents
+            { $sample: { size: 5 } }            
         ]);
-        const quizUrls = quizzes.map(quiz => `https://QuizMaster/quiz/attempt/${quiz._id}`); // Adjust base URL as needed
-        // console.log(quizUrls);
+        const quizUrls = quizzes.map(quiz => `https://QuizMaster/quiz/attempt/${quiz._id}`); 
         res.json(quizUrls);
     } catch (error) {
         res.status(500).json({ message: 'Error fetching quiz URLs.' });
@@ -209,18 +205,18 @@ app.get('/quiz/urls/:title', async (req, res) => {
 });
                             
 app.get('/attemptQuiz', async (req, res) => {
-    const { quizId } = req.query; // Destructure quizId from query parameters
+    const { quizId } = req.query; 
     try {
-        const quiz = await Quiz.findById(quizId); // Fetch the quiz from the database
+        const quiz = await Quiz.findById(quizId); 
         if (quiz) {
-            console.log('Fetched Quiz:', JSON.stringify(quiz)); // Log the quiz for debugging
-            res.render('attempt.ejs', { quiz }); // Render the attempt page with the quiz data
+            console.log('Fetched Quiz:', JSON.stringify(quiz)); 
+            res.render('attempt.ejs', { quiz }); 
         } else {
-            res.status(404).send('Quiz not found.'); // Send a 404 error if quiz not found
+            res.status(404).send('Quiz not found.'); 
         }
     } catch (error) {
-        console.error('Error fetching quiz:', error); // Log any errors
-        res.status(500).send('Server error while fetching quiz.'); // Send a 500 error for server issues
+        console.error('Error fetching quiz:', error); 
+        res.status(500).send('Server error while fetching quiz.'); 
     }
 });
 

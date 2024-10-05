@@ -1,30 +1,26 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4; /* Light background color */
-    color: #333; /* Dark text color */
+    background-color: #f4f4f4; 
+    color: #333; 
     margin: 0;
     padding: 0;
 }
 
 .container {
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* align-items: center; */
-    /* justify-content: center; */
-    height: 100vh; /* Full height */
+    height: 100vh; 
 }
 
 .title {
     display: flex;
     width:100%;
     justify-content: center;
-    margin: auto auto; /* Center the title box horizontally */
+    margin: auto auto; 
 }
 
 .title p {
     padding-left:100px;
     padding-right:100px;
-    margin: 10px; /* Remove default margin from the paragraph */
+    margin: 10px; 
     font-size: 25px;
     color: white;
     padding: auto auto;
@@ -48,13 +44,13 @@ img{
 }
 
 #myLinks {
-    background-color: #2c3e50; /* Background color for the box */
-    padding: 10px; /* Padding inside the box */
-    border-radius: 8px; /* Rounded corners for the box */
-    display: flex; /* Use flexbox to arrange links */
-    justify-content: flex-end; /* Center links horizontally */
-    gap: 10px; /* Space between links */
-    margin: 30px 0px; /* Margin around the box */
+    background-color: #2c3e50; 
+    padding: 10px; 
+    border-radius: 8px;
+    display: flex; 
+    justify-content: flex-end; 
+    gap: 10px; 
+    margin: 30px 0px; 
     align-items: center;
 }
 

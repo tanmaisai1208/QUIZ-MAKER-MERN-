@@ -1,107 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Attempt Quiz</title>
-    <link rel="stylesheet" href="/stylesheets/attempt.css">
-</head>
-<body>
-    <div class="quiz-container">
-        <h1 class="quiz-title"><%= quiz.quizTitle %></h1>
-
-        <div id="question-container">
-            <% quiz.questions.forEach((question, index) => { %>
-                <div class="question" id="question-<%= index %>" style="display: none;">
-                    <h2><%= question.text %></h2>
-                    <div class="options">
-                        <% Object.keys(question.options).forEach(optionKey => { %>
-                            <label class="answer-option">
-                                <input type="radio" name="answer-<%= index %>" value="<%= question.options[optionKey] %>">
-                                <%= question.options[optionKey] %>
-                            </label>
-                        <% }); %>
-                    </div>
-                </div>
-            <% }); %>
-        </div>
-
-        <div class="navigation">
-            <button id="prev-btn" class="nav-btn" style="display:none;">Previous</button>
-            <button id="next-btn" class="nav-btn" style="display:none;">Next</button>
-        </div>
-
-        <div id="submit-section" style="display:none;">
-            <button id="submit-btn" class="submit-btn">Submit Quiz</button>
-        </div>
-
-        <div id="result-section" class="result-hidden">
-            <h2>Your Score: <span id="score"></span></h2>
-        </div>
-    </div>
-
-    <script>
-        const quiz = <%- JSON.stringify(quiz) %>; // Ensure JSON.stringify is used correctly
-    </script>
-    
-    <script src="/javascripts/attempt.js"></script> <!-- Link to the external JS file -->
-<!-- </body> -->
-<!-- </html> --> 
-
-<!-- <!DOCTYPE html> 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Attempt Quiz</title>
-    <link rel="stylesheet" href="/stylesheets/attempt.css">
-</head>
-<body>
-    <div class="quiz-container">
-        <h1 class="quiz-title"><%= quiz.quizTitle %></h1>
-
-        <div id="question-container">
-            <% quiz.questions.forEach((question, index) => { %>
-                <div class="question" id="question-<%= index %>" style="display: none;">
-                    <h2><%= question.text %></h2>
-                    <div class="options">
-                        <% if (question.type === 'multiple-choice') { %>
-                            <% Object.keys(question.options).forEach(optionKey => { %>
-                                <label class="answer-option">
-                                    <input type="radio" name="answer-<%= index %>" value="<%= question.options[optionKey] %>">
-                                    <%= question.options[optionKey] %>
-                                </label>
-                            <% }); %>
-                        <% } else if (question.type === 'open-ended') { %>
-                            <textarea name="answer-<%= index %>" rows="4" placeholder="Your answer..."></textarea>
-                        <% } %>
-                    </div>
-                </div>
-            <% }); %>
-        </div>
-
-        <div class="navigation">
-            <button id="prev-btn" class="nav-btn" style="display:none;">Previous</button>
-            <button id="next-btn" class="nav-btn" style="display:none;">Next</button>
-        </div>
-
-        <div id="submit-section" style="display:none;">
-            <button id="submit-btn" class="submit-btn">Submit Quiz</button>
-        </div>
-
-        <div id="result-section" class="result-hidden">
-            <h2>Your Score: <span id="score"></span></h2>
-        </div>
-    </div>
-
-    <script>
-        const quiz = <%- JSON.stringify(quiz) %>; // Ensure JSON.stringify is used correctly
-    </script>
-    
-    <script src="/javascripts/attempt.js"></script> <!-- Link to the external JS file -->
-<!-- </body>  -->
-<!-- </html> --> 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -119,12 +15,12 @@
         </div>
 
         <div class="navigation" style="display:none;">
-            <button id="prev-btn" class="nav-btn">Previous</button>
-            <button id="next-btn" class="nav-btn">Next</button>
+            <button id="prev-btn" class="nav-btn">PREVIOUS</button>
+            <button id="next-btn" class="nav-btn">NEXT</button>
         </div>
 
         <div id="submit-section" style="display:none;">
-            <button id="submit-btn" class="submit-btn">Submit Quiz</button>
+            <button id="submit-btn" class="submit-btn">SUBMIT</button>
         </div>
 
         <div id="result-section" class="result-hidden">
@@ -133,7 +29,7 @@
     </div>
 
     <script>
-        const quiz = <%- JSON.stringify(quiz) %>; // Ensure JSON.stringify is used correctly
+        const quiz = <%- JSON.stringify(quiz) %>; 
     </script>
 
     <script src="/javascripts/attempt.js"></script>

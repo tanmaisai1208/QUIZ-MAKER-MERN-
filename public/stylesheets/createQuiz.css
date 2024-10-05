@@ -24,9 +24,18 @@ body {
     color:aqua;
 }
 
+.url {
+    color: aqua;
+    user-select: text;
+}
+
+.url:hover {
+    color: rgb(255, 0, 85);
+}
+
 #quiz-url:hover {
     cursor: pointer;
-    color: rgb(110, 110, 184);
+    color: rgb(255, 0, 85);
 }
 
 label{
