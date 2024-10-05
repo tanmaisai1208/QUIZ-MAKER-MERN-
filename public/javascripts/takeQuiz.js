@@ -8,7 +8,7 @@ document.getElementById('quizTitle').addEventListener('change', async function (
             const quizUrls = await response.json();
             console.log('Quiz URLs received:', quizUrls);
             const urlContainer = document.getElementById('url-container');
-            urlContainer.innerHTML = '';
+            urlContainer.innerHTML = 'URLs FOR THE SELECTED QUIZ-TITLE ';
 
             if (quizUrls.length > 0) {
                 quizUrls.forEach(url => {
