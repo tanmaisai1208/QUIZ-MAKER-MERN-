@@ -1,8 +1,6 @@
 # QUIZ-MAKER-(MERN)
 Project for creating a quiz maker using MERN stack (MongoDb, Express.js, React.js, Node.js)
 
-# Quiz Web Application
-
 ## Table of Contents
 
 - [Introduction](#introduction)
