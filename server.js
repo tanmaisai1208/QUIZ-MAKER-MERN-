@@ -140,11 +140,11 @@ app.post('/logout', (req, res) => {
     res.redirect('/login');
 });
 
-app.get('/createQuiz', async (req, res) => {
+app.get('/createQuiz', checkAuth, async (req, res) => {
    res.render('createQuiz.ejs');
 });
 
-app.post('/createQuiz', async (req, res) => {
+app.post('/createQuiz', checkAuth, async (req, res) => {
     try {
         const { quizTitle, questions } = req.body;
 
@@ -197,11 +197,11 @@ app.post('/createQuiz', async (req, res) => {
 });
 
 
-app.get('/takeQuiz', async (req, res) => {
+app.get('/takeQuiz', checkAuth, async (req, res) => {
     res.render('takeQuiz.ejs');
  });
                             
-app.get('/quiz/urls/:title', async (req, res) => {
+app.get('/quiz/urls/:title', checkAuth, async (req, res) => {
     const { title } = req.params;                            
     try {
         const quizzes = await Quiz.aggregate([
@@ -215,7 +215,7 @@ app.get('/quiz/urls/:title', async (req, res) => {
     }
 });
                             
-app.get('/attemptQuiz', async (req, res) => {
+app.get('/attemptQuiz', checkAuth, async (req, res) => {
     const { quizId } = req.query; 
     try {
         const quiz = await Quiz.findById(quizId); 
